@@ -1,27 +1,29 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 
 function BMICal() {
   const [weight, setWeight] = useState();
   const [height, setHeight] = useState();
+  const  [display,setDisplay] = useState('');
 
-  function handleSubmit(event) {
+  function calculate(event) {
     event.preventDefault();
     let bmi = weight / (height/100 * height/100);
     if (bmi < 18.5) {
-      console.log("Underweight");
+      setDisplay("Underweight");
     } else if (bmi < 25) {
-      console.log("Normal");
+      setDisplay("Normal");
     } else if (bmi < 30) {
-      console.log("Overweight");
+      setDisplay("Overweight");
     } else {
-      console.log("Obese");
+      setDisplay("Obese");
     }
   }
   return (
     <div>
       <div>
         <h2>BMI Calculator</h2>
-        <form onSubmit={handleSubmit}>
+        <form >
           <input
             placeholder="Weight"
             type="number"
@@ -36,9 +38,10 @@ function BMICal() {
             id="height"
             onChange={(event) => setHeight(event.target.value)}
           />
-          <input className="submit" type="submit" />
+          <button onClick={calculate}>Calculate</button>
         </form>
-        <h3></h3>
+        <h3>Your BMI is {display}</h3>
+        
       </div>
     </div>
   );

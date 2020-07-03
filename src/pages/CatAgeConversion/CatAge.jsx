@@ -1,25 +1,26 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 
 function CatAge() {
   const [age, setAge] = useState();
+  const [display, setDisplay] = useState(0);
 
-  
-  function handleSubmit(event) {
+  function convert(event) {
     event.preventDefault();
-    let display = '';
+
     if (age == 1) {
-      console.log(15);
+      setDisplay(15);
     } else if (age == 2) {
-      console.log(24);
+      setDisplay(24);
     } else if (age >= 3) {
-      console.log(24 + (age - 2) * 4);
+      setDisplay(24 + (age - 2) * 4);
     }
   }
 
   return (
     <div>
       <h2>Cat Age Converstion</h2>
-      <form onSubmit={handleSubmit}>
+      <form>
         <input
           placeholder="Cat's Age"
           type="number"
@@ -27,9 +28,9 @@ function CatAge() {
           id="catage"
           onChange={(event) => setAge(event.target.value)}
         />
-        <input className="submit" type="submit" />
+        <button onClick={convert}>Convert</button>
+        <h3>{age} Years Cat is {display} Year Human </h3>
       </form>
-      <h3></h3>
     </div>
   );
 }
