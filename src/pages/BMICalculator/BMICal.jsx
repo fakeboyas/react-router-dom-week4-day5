@@ -10,13 +10,13 @@ function BMICal() {
     event.preventDefault();
     let bmi = weight / (height/100 * height/100);
     if (bmi < 18.5) {
-      setDisplay("Underweight");
+      setDisplay("Your BMI is Underweight");
     } else if (bmi < 25) {
-      setDisplay("Normal");
+      setDisplay("Your BMI is Normal");
     } else if (bmi < 30) {
-      setDisplay("Overweight");
+      setDisplay("Your BMI is Overweight");
     } else {
-      setDisplay("Obese");
+      setDisplay("Your BMI is Obese");
     }
   }
   return (
@@ -25,14 +25,14 @@ function BMICal() {
         <h2>BMI Calculator</h2>
         <form >
           <input
-            placeholder="Weight"
+            placeholder="Weight in Kilograms"
             type="number"
             name="weight"
             id="weight"
             onChange={(event) => setWeight(event.target.value)}
           />
           <input
-            placeholder="Height"
+            placeholder="Height in Centimeters"
             type="number"
             name="Height"
             id="height"
@@ -40,7 +40,7 @@ function BMICal() {
           />
           <button onClick={calculate}>Calculate</button>
         </form>
-        <h3>Your BMI is {display}</h3>
+        <h3> {display}</h3>
         
       </div>
     </div>

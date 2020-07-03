@@ -7,20 +7,30 @@ const Navbar = styled.nav`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  text-decoration:none;
+  text-decoration: none;
   width: 100%;
-  height:200px;
+  height: 200px;
+`;
+
+const Navitem = styled.nav`
+
 `;
 
 function Header() {
   return (
     <div>
       <Navbar>
-      
+        <Navitem>
           <Link to="/bmical">BMI Calculator</Link>
+        </Navitem>
+        <Navitem>
           <Link to="/texttransform">Text Transform</Link>
-          <Link to="/catage">Cat Age Conversion</Link>
-      
+        </Navitem>
+
+        <Navitem>
+        <Link to="/catage">Cat Age Conversion</Link>
+        </Navitem>
+        
       </Navbar>
     </div>
   );

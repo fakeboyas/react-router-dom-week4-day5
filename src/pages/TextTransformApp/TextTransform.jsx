@@ -2,12 +2,29 @@ import React, { useState } from "react";
 
 import styled from "styled-components";
 
-
-
 function TextTransform() {
-    const [textInput, setText] = useState();
-  
-    return (
+  const [textInput, setText] = useState();
+  const [display, setDisplay] = useState();
+
+  function convert(event) {
+    event.preventDefault();
+    const split = textInput.split("");
+    const result = split
+            .map((item) => {
+                if (item.match(/[A-Z]/)) {
+                    item = item.toLowerCase();
+                } else {
+                    item = item.toUpperCase();
+                }
+
+                return item;
+            })
+            .join("");
+    setDisplay(`Transform text ${textInput} is ${result}.`)
+    
+  }
+
+  return (
     <div>
       <h2>Text Transform App</h2>
       <form>
@@ -18,8 +35,11 @@ function TextTransform() {
           id="inputText"
           onChange={(event) => setText(event.target.value)}
         />
-        <input className="submit" type="submit" />
+        <button onClick={convert}>Convert</button>
       </form>
+      <h3>
+        {display}
+      </h3>
     </div>
   );
 }
