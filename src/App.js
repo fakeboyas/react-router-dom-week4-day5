@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+import "./App.css";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+
+import Header from './components/Header/Header'
+import CatAge from './pages/CatAgeConversion/CatAge'
+import TextTransform from './pages/TextTransformApp/TextTransform'
+import BMICal from './pages/BMICalculator/BMICal'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <div className="App">
+    <Router>
+            <Header />
+
+            <Switch>
+               
+                <Route exact path='/bmical'>
+                    <BMICal />
+                </Route>
+                <Route exact path='/texttransform'>
+                    <TextTransform />
+                </Route>
+                <Route exact path='/catage'>
+                    <CatAge />
+                </Route>
+
+              
+            </Switch>
+        </Router>
+
+  </div>;
 }
 
 export default App;
