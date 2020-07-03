@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+
 
 function CatAge() {
   const [age, setAge] = useState();
   const [result, setResult] = useState();
-  const [display, setDisplay] = useState();
+  
 
   function convert(event) {
     event.preventDefault();
@@ -16,7 +16,7 @@ function CatAge() {
     } else if (age >= 3) {
       setResult(24 + (age - 2) * 4);
     }
-    setDisplay(`${age} Years Cat is ${result} Year Human `)
+
   }
 
   
