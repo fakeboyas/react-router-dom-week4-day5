@@ -26,7 +26,7 @@ function BMICal() {
 
   function calculate(event) {
     event.preventDefault();
-    let bmi = weight / ((height / 100) * (height / 100));
+    let bmi = weight / (Math.pow(height, 2) * 0.0001);
 
     if (bmi < 17) {
       setDisplay("Your BMI is Heavy Underweight");
